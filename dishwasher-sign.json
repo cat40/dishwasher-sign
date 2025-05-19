@@ -1,0 +1,18 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "$fn": "256",
+            "cube_size": "50",
+            "lid_depth": "20",
+            "lid_type": "star",
+            "ngon_points": "4",
+            "ngon_radius": "30",
+            "screw_depth": "16",
+            "screw_diameter": "39.5",
+            "screw_pitch": "4",
+            "star_inner_radius": "21.5",
+            "star_points": "10"
+        }
+    },
+    "fileFormatVersion": "1"
+}
