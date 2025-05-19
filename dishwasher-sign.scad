@@ -10,6 +10,8 @@ corner_radius=5;
 magnet_spacing = 60;
 magnet_distance_from_edge = 1.2;
 
+$fn = $preview ? 16 : 64;
+
 // derived variables
 x_magnet_count=floor((width-magnet_distance_from_edge-m6_magnet_diameter/2)/magnet_spacing);
 x_magnet_spacing=(width-2*magnet_distance_from_edge-m6_magnet_diameter)/x_magnet_count;
@@ -35,6 +37,8 @@ module dishwasher_sign()
         }
         translate([-width/2, 0, 0])
             #magnets();
+        translate([-width/2, 0, 2*text_depth+middle_thickness-m6_magnet_thickness])
+            #magnets();
     }
 }
 
@@ -43,23 +47,23 @@ module magnets()
     translate([(magnet_distance_from_edge+m6_magnet_diameter/2), (magnet_distance_from_edge/2+m6_magnet_diameter/2), 0])
     {
         x_magnets();
-        translate([0, height-1*magnet_distance_from_edge-m6_magnet_diameter, 0])
+        translate([0, height-2*magnet_distance_from_edge-m6_magnet_diameter, 0])
             x_magnets();
         y_magnets();
-        translate([width-1*magnet_distance_from_edge-m6_magnet_diameter, 0, 0])
+        translate([width-2*magnet_distance_from_edge-m6_magnet_diameter, 0, 0])
             y_magnets();
     }
 }
 
 module x_magnets()
 {
-    rectangle_array(x_magnet_count, 1, x_spacing=x_magnet_spacing, y_spacing=.1)
+    rectangle_array(x_magnet_count, 1, x_spacing=x_magnet_spacing, y_spacing=0)
         m6_magnet();
 }
 
 module y_magnets()
 {
-    rectangle_array(1, y_magnet_count, y_spacing=y_magnet_spacing, x_spacing=.1)
+    rectangle_array(1, y_magnet_count, y_spacing=y_magnet_spacing, x_spacing=.001)
         m6_magnet();
 }
 
