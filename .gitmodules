@@ -1,0 +1,3 @@
+[submodule "scad-common"]
+	path = scad-common
+	url = git@github.com:cat40/scad-common.git
